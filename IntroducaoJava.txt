@@ -1,0 +1,131 @@
+         Variável numérica --> tipo (byte(8bits), short(16bits), int(32bits), long(64bits)) nome = valor --> ex: byte idade = 22
+
+         Variáveis de escopo local --> var nome = "Atribuição do valor" --> ex: var nome = "Mariana"
+
+         Variável do tipo booleano --> boolean nome = verdadeiro ou falso --> ex: boolean estaFrio = true ou false
+
+         Variável de caracter --> char letra = 'A'
+
+         Variáveis flutuantes --> double(mais precisão, mais números após a vírgula) ou float(números mais simples, menos precisão) -->
+         ex: double idade = 22.50; float salario = 400.20F
+
+         Variável para frases --> string (mas é uma classe, não é tipo primitivo como os anteriores)
+
+
+        Condicionais em Java se...então --> if...else
+        ex: idade = 22.50;
+        if(idade > 22.60){
+            System.out.println("maior");
+        } else {
+            System.out.println("menor");
+        }
+
+        Condicionais em Java então se --> else if
+        ex: idade = 22.50;
+        if(idade > 22.60){
+            System.out.println("maior");
+        } else if (idade == 20.60) {
+            System.out.println("igual");
+        } else {
+            System.out.println("menor");
+        }
+
+        Condicional se...então --> if...else para String
+        String nome = "Mariana";
+        if (nome.equals("Mariana")) {
+            System.out.println("Nomes iguais!");
+        }
+
+
+        Declarar Vetores (Arrays) em Java
+            tipo array e nome --> int[] idades: --> depois de declarar o array, preciso inicializar
+            ex:
+            int[] idades = {2,3,4}; (inicializar com valores default, assim terá sempre length = 3)
+            idades[0] = 4;
+            OU
+            int[] idades = new int[10]; (inicializar com os valores vazios, já dizendo o length e depois colocando os valores)
+
+            É possível fazer isso com todos os tipos de variáveis que vimos:
+                String[] nomes = new String[10];
+                boolean[] saoBrasileiros = {true, false, true, true, false};
+
+            Para saber o length de arrays primitivas -->
+            int[] idades1 = new int[10];
+            idades1.length;
+
+        Esses arrays são fixos, o que limita muito o uso. Arrays com tamanhos dinâmicos são feitos com ArrayList
+
+
+        Criar Vetores Dinâmicos com ArrayList
+            ArrayList<tipo> nome --> ex: ArrayList<Integer> idades = new ArrayList<>();
+
+            Será do tipo Integer, pois não poderá ser um Tipo Primitivo, será uma Classe
+
+            Para adicionar os valores ao ArrayList -->
+            idades.add(22); quantas vezes quiser
+            idades.add(30);
+            idades.add(66);
+            Para deletar os valores da ArrayList -->
+            idades.remove(index) -->
+            idades.remove(0); nesse caso irá deletar o 22, que estava na posição 0;
+            idades.remove(2); nesse caso irá deletar o 66 etc
+
+            Para retornar algum valor específico -->
+            idades.get(1); irá retornar o valor 30, armazenado no index 1
+
+            Retornar o tamanho do Array -->
+            idades.size();
+
+            Ver todos os métodos auxiliares -->
+            idades.
+
+
+        Como funcionam os Loops? Existe o while e o for
+        Usando o for --> Primeiro passar a variável que está sendo observada, fazer a comparação -->
+        int idade = 10; (para comparação)
+        for(var i = 0; i < idade; i++){ (i++ = incrementando, a cada interação será somado até atingir o valor idade
+            System.out.println("oi");    ou seja, será printado "oi" por 10 vezes, itera um número conhecido (idade) de vezes.)
+
+        Usando o while --> preciso declarar o valor de comparação e o valor de i, a cada while será declarado i++ -->
+        int idade = 10;
+        int i = 0;
+        while(i < idade){
+            i++;          (o i será incrementando até atingir o valor 9, pois depois se iguala a 10 e não segue o loop,
+            Repete enquanto a condição for verdadeira.)
+        }
+
+
+        Utilizando o Casting: O que é o casting?
+        É quando utilizamos um valor de um tipo e queremos transformar em outro tipo --> mudar int para double ou mudar double para int
+        ex: mudar de int 22 para double 22.5, ou o contrário
+
+        Casting implícito --> fazer a transformação sem declarar que estamos fazendo isso, só pode com transformações fáceis,
+        ex: int para double
+        int idade1 = 22;
+        double idade2 = idade1; (transformação automática)
+
+        O inverso (idade1 = idade2) não será aceito, pois a faixa de representação de um double é maior que de um int
+        --> ou seja, estaremos tentando pegar um bloco grande e colocar em um espaço de bloco pequeno, para isso precisamos
+        fazer um casting explícito
+
+        Casting explícito --> é importante lembrar que pode haver perda de dados.
+        int idade1 = 22;
+        idade1 = (int) idade2;
+
+        Exemplo com caracteres (char para String)
+        char letra = 'a';
+        String nome = letra; (dará erro)
+
+        para ser aceito
+        String nome = String.valueOf(letra);
+
+        Transformar a String em char
+        letra = nome.charAt(index);
+        letra = nome.charAt(0);
+
+        Transformar int em String
+        String nome2 = String.valueOf(idade1);
+
+        Transformar String em int (Não é possível fazer essa conversão sempre, ex: uma palavra não será transformada em um inteiro,
+        mas se a String for numérica pode ser transformada
+        idade1 = Integer.parseInt(nome2);  (parseInt() = funciona apenas para strings numéricas.)
